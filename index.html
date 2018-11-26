@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Search Engine</title>
+    <link rel="shortcut icon" href="./assets/images/Books-favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script defer src="./scripts/Book.js"></script>
+    <script defer src="./scripts/BooksOperation.js"></script>
+    <script defer src="./scripts/searchOperations.js"></script>
+    <script defer src="./scripts/controller.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div id="search-box">
+            <input type="text" id="search-bar" placeholder="Search Books by Name, Author and Title">
+            <button class="search-button"><i class="fas fa-search search-icon"></i><span>&nbsp;&nbsp;Search</span></button>
+        </div>
+
+        <div id="search-result">
+            <h1 id="search-heading"></h1>
+        </div>
+
+        <div class="books-container">
+
+        </div>
+
+
+
+
+        <div id="site-assets">
+            <div class="book-card display-none">
+                <div class="book-image">
+                    <img src="" alt="NA">
+                </div>
+                <div class="book-detail">
+                    <div class="book-name-row">
+                        <div><span>Book-Name</span></div>
+                        <div><span class="book-name"></span></div>
+                    </div>
+                    <div class="author-name-row">
+                        <div><span>Author-Name</span></div>
+                        <div><span class="author-name"></span></div>
+                    </div>
+                    <div class="read-more-row">
+                        <a href="#" class="read-more-link" target="_blank">
+                            <button>
+                                <i class="fas fa-book-reader"></i>
+                                <span>&nbsp;&nbsp;Read More&nbsp;&nbsp;</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>

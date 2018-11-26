@@ -1,0 +1,224 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url(../images/bg1.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+ul,
+li {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.display-none {
+    display: none!important;
+}
+
+#search-box {
+    width: 100%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+/* img {
+    width: 100%;
+} */
+
+.book-image{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#search-bar {
+    width: 50%;
+    outline: none;
+    border: none;
+    height: 40px;
+    border-radius: 8px 0px 0px 8px;
+    padding-left: 20px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.2em;
+}
+
+#search-bar::placeholder {
+    padding: 20px;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+.search-button {
+    display: inline-block;
+    border: 0px solid transparent;
+    width: 140px;
+    height: 42px;
+    background-color: #0062cc;
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    outline: none;
+}
+
+.search-button:hover{
+    background-color: #408bdd;
+}
+
+
+.search-button>span {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+}
+
+.search-button .search-icon {
+    color: white;
+    font-size: 1.4em;
+}
+
+span {
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+#search-result {
+    margin-top: 100px;
+    padding: 0% 5%;
+}
+
+#search-result h1 {
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+}
+
+
+.books-container {
+    margin-top: 50px;
+    padding: 0% 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 80px;
+}
+
+.books-container>.book-card {
+    height: 350px;
+    background-color: white;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px 0px black;
+    transition-duration: 0.5s;
+}
+
+.book-card:hover {
+    transform: translate(0px, -4px);
+    box-shadow: 0px 2px 10px 3px black;
+}
+
+.book-card>.book-image {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.book-card>.book-detail {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.book-detail>div {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.book-detail>div>div:first-child {
+    flex: 0.8;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.book-detail>div>div:last-child {
+    flex: 1;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+
+.book-detail>.read-more-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex: 0.5;
+}
+
+.book-detail span {
+    color: black;
+    font-weight: normal;
+    font-size: 1em;
+}
+
+
+.read-more-row i,
+.read-more-row span {
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.read-more-row button {
+    padding: 0px 10px;
+    border: none;
+    background-color: #ffc107;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.read-more-row button:hover i,
+.read-more-row button:hover span {
+    color: crimson;
+}
+
