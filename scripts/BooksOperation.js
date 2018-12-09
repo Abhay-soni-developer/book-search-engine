@@ -12,6 +12,12 @@ const bookOperations = {
 
     getBooksContainer(){
         return this.booksContainer;
+    },
+
+    getBookByID(bookID){
+        return this.booksContainer.find(book=>{ if(bookID==book.id){
+            return book;
+        }});
     }
 
 }

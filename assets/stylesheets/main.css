@@ -52,6 +52,10 @@ label {
     display: none!important;
 }
 
+.relative{
+    position: relative;
+}
+
 
 select {
     border-radius: 5px;
@@ -186,7 +190,16 @@ header {
     justify-content: flex-end;
 }
 
-.user-manager-box a {
+
+#user-box > li {
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-right: 1px 
+}
+
+.user-manager-box a, .user-manager-box > li > button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -197,12 +210,77 @@ header {
     color: gray;
     height: 60px;
     border-left: 1px solid gray;
+    width: 100%;
 }
 
-.user-manager-box >li:hover>a {
+.user-manager-box > li > button{
+    background-color: white;
+    border-top: none;
+    border-right: none;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.user-manager-box >li:hover>a, .user-manager-box > li:hover > button {
     border-bottom: 2px solid crimson;
     color: #0062cc;
 }
+
+.dropDown-menu {
+    display: none;
+    position: absolute;
+    top: 61px;
+    right: 0px;
+    background-color: white;
+}
+
+.dropDown-menu > li{
+    display: inline;
+}
+
+.user-manager-box > li:hover > .dropDown-menu {
+    display: inline;
+}
+
+.dropDown-menu > li > button {
+    /* display: inline; */
+    background-color: white;
+    border: none;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+    height: 60px;
+    width: 100%;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.dropDown-menu > li:hover > button {
+    border-left-color: goldenrod;
+}
+
+.dropDown-menu > li:hover > button {
+    color: crimson;
+}
+
+/* 
+.dropDown-menu > li > a {
+    white-space: nowrap;
+    border-bottom: 1px solid gray;
+    justify-content: flex-start;
+    border-left: 2px solid transparent;
+}
+
+.dropDown-menu > li:hover > a {
+    border-left: 2px solid goldenrod;
+}
+
+.dropDown-menu > li:hover > a > i {
+    color: crimson;
+} */
 
 #search-box {
     margin-left: 20px;
@@ -294,6 +372,10 @@ header {
     width: 200px;
 }
 
+#order-by-list{
+    width: 150px;
+}
+
 
 #adv-search-bar > div {
     margin-left: 50px;
@@ -375,6 +457,7 @@ span {
 }
 
 .books-container>.book-card {
+    position: relative;
     height: 350px;
     background-color: white;
     width: 250px;
@@ -463,5 +546,19 @@ span {
 .read-more-row button:hover i,
 .read-more-row button:hover span {
     color: crimson;
+}
+
+.add-to-fav i{
+    color: crimson;
+}
+
+.add-to-fav:hover i{
+    color: red;
+}
+
+.add-to-fav{
+    position: absolute;
+    right: 5px;
+    top: 5px;
 }
 

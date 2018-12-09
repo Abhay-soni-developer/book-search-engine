@@ -13,7 +13,7 @@ class User{
         //check database for any product in cart for this user;
     }
 
-    initFavBooksList(){
+    initFavList(){
         //check database for book marked as fav for this user;
     }
 
@@ -22,9 +22,19 @@ class User{
         this.cart.push(book);
     }
 
-    addToFavBookList(book){
+    addToFavList(book){
         //add Book to favourite List
-        this.favouriteBooks.push(book);
+        if(this.favouriteBooks.find( currentBook=>{
+            if(currentBook.id==book.id){
+                return book;
+            }
+        })){
+            return false;
+        }else{
+            this.favouriteBooks.push(book);
+            return true;
+        }
+        
     }
 
     getCartList(){
@@ -43,5 +53,12 @@ class User{
 
     }
 
+    getUserName(){
+        return this.uname;
+    }
+
+    getFavList(){
+        return this.favouriteBooks;
+    }
 
 }

@@ -22,7 +22,7 @@
     <script src="./scripts/userOperations.js"></script>
     <script defer src="./scripts/searchOperations.js"></script>
     <script defer src="./scripts/controller.js"></script>
-    
+
 </head>
 
 <body>
@@ -37,7 +37,7 @@
         </div>
         <div>
             <div><label for="login-pass"><span>password</span></label></div>
-            <div><input type="text" name="pass" id="login-pass" placeholder="Type Password"></div>
+            <div><input type="pass" name="pass" id="login-pass" placeholder="Type Password"></div>
         </div>
         <div>
             <button id='login-btn-btn'>login</button>
@@ -91,13 +91,26 @@
                         Search</span></button>
             </div>
             <nav>
-                <ul class="user-manager-box">
+                <ul class="user-manager-box" id="user-login-reg-box">
                     <li><a href="#login" id="login-btn"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;Login</a></li>
                     <li><a href="#register" id="registration-btn"><i class="far fa-address-card"></i>&nbsp;&nbsp;Register</a></li>
                 </ul>
             </nav>
 
+            <nav>
+                <ul id='user-box' class="user-manager-box display-none">
+                    <li><a href="#""><i class="fas fa-user fa-2x"></i><span>&nbsp;Welcome, <span id="user-box-uname">User</span></span></a></li>
+                    <li class="relative"><a href="#"><i class="fas fa-caret-down"></i><span>&nbsp;&nbsp;Menu</span></a>
+                        <ul class="dropDown-menu">
+                            <li> <button id="view-fav-btn"><i class="fab fa-gratipay fa-2x"></i><span>&nbsp;&nbsp;Favourite List</span></button></li>
+                            <!-- <li> <button><i class="fab fa-opencart fa-2x"></i><span>&nbsp;&nbsp;Cart List</span></button> </li> -->
+                        </ul>
+                        </li>
+                        <li><button id="user-logout"><i class="fas fa-sign-out-alt"></i><span>&nbsp;&nbsp;Logout</span></button></li>
+                </ul>
+            </nav>
 
+ 
             <div id="adv-search-bar" class="">
 
                 <div id="number-of-result-box">
@@ -134,6 +147,15 @@
                     </select>
                     <input type="text" id="search-by-query-text">
                 </div>
+
+                <div id="order-by-box">
+                    <span>order by: </span>
+                    <select id="order-by-list">
+                        <option value="relevance" selected><span>Relevance</span></option>
+                        <option value="newest"><span>newest</span></option>
+                    </select>
+                </div>
+
 
             </div>
 
@@ -176,6 +198,7 @@
                         </a>
                     </div>
                 </div>
+                <div class="add-to-fav" onclick="addToFavList(this)"><i class="fab fa-gratipay fa-2x"></i></div>
             </div>
         </div>
 

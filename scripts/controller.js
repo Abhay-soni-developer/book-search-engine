@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
     document.querySelector(".search-button").addEventListener("click", () => {
         searchOperations.searchForBooks();
     });
+    searchBar=document.getElementById('search-bar');
     advSearchBarToggleButton = document.querySelector("#adv-search-btn");
     advSearchBarToggleButton.addEventListener('click', toggleAdvanceSearchBar);
     advanceSearchBar = document.querySelector("#adv-search-bar");
@@ -26,20 +27,36 @@ window.addEventListener('load', () => {
     regResetBtn.addEventListener('click', regReset);
     loginBtn=document.querySelector('#login-btn-btn');
     loginBtn.addEventListener('click', loginUser);
-   
+    
+    resultPerPageList=document.querySelector("#number-of-result");
+    filterByList=document.querySelector('select#filter-by-list');
+    searchByList=document.querySelector('select#search-by-list');
+    searchbyQuery=document.querySelector('input#search-by-query-text');
+    orderByList = document.querySelector('#order-by-list');
+
+    userManagerBox=document.querySelector('#user-login-reg-box');
+    userBox=document.querySelector('#user-box');
+    logoutBtn = document.querySelector("#user-logout");
+    logoutBtn.addEventListener('click', logout);
+    viewFavBtn = document.querySelector("#view-fav-btn");
+    viewFavBtn.addEventListener('click', viewFavList);
+
+    // resultPerPageList.onchange = ()=>{searchOperations.setResultPerPage(resultPerPageList.value)};
+    // filterByList.onchange=()=>{searchOperations.setBookType(filterByList.value)};
 });
 
 
-function updateBookContainer(searchQuery) {
+function updateBookContainer(searchQuery, books) {
     updateSearchHeading(searchQuery);
     clearBookContainerView();
-    bookOperations.getBooksContainer().forEach(book => {
+    books.forEach(book => {
         let bookCard = createCard();
         bookCard.querySelector(".book-image>img").src = book.imgLink;
         bookCard.querySelector(".book-name").innerText = book.title;
         bookCard.querySelector(".author-name").innerText = book.authorName;
         bookCard.querySelector(".read-more-link").href = book.readMoreLink;
         bookCard.classList.remove("display-none");
+        bookCard.querySelector(".add-to-fav").setAttribute("data-id", book.id);
         appendBookCard(bookCard);
     });
 }
@@ -110,4 +127,61 @@ function loginUser(){
     var email=document.querySelector("#login-email").value;
     var pass=document.querySelector('#login-pass').value;
     userOperations.login(email, pass);
+    toggleLoginBoxDisplay();
+}
+
+function getResultPerPageValue(){
+    return resultPerPageList.value;
+}
+
+function getBookType(){
+    return filterByList.value;
+}
+
+function getSearchByCategory(){
+    return searchByList.value;
+}
+
+function getSearchQuery(){
+    return searchBar.value;
+}
+
+function getSearchByQuery(){
+    return searchbyQuery.value;
+}
+
+function getOrderByValue(){
+    return orderByList.value;
+}
+
+function toggleBetweenUserBoxes(){
+    if(userOperations.user){
+        userManagerBox.classList.add('display-none');
+        userBox.classList.remove('display-none');
+        userBox.querySelector('#user-box-uname').innerHTML = userOperations.getUserName();
+    }else{
+        userManagerBox.classList.remove('display-none');
+        userBox.classList.add('display-none');
+        userBox.querySelector('#user-box-uname').innerHTML = "";
+    }
+}
+
+function logout(){
+    userOperations.logout();
+}
+
+function addToFavList(element){
+    if(userOperations.user){
+        if(userOperations.addToFavList(element.getAttribute("data-id"))){
+            console.log("Book Successfully Added");
+        }else{
+            console.log("Book Already Exist In Favourite List");
+        }
+    }else{
+        alert("Please Login To use this feature");
+    }
+}
+
+function viewFavList(){
+    updateBookContainer("Favourite Books", userOperations.getFavList());
 }
