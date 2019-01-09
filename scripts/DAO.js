@@ -4,6 +4,7 @@ const DAO = {
         this.databaseRef = firebase.database();
     },
  
+    registerNewUser(newUserData){
         this.databaseRef.ref("users/" + newUserData.email).set(newUserData);
         return "new user registered";
     },
